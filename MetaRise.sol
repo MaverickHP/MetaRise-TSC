@@ -499,7 +499,7 @@ contract DividendPayingToken is ERC20, Ownable, DividendPayingTokenInterface, Di
 		.add( (magnifiedDividendPerShare.mul(value)).toInt256Safe() );
 	}
 	function _setBalance(address account, uint256 newBalance) internal {
-		uint256 currentBalance = balanceOf(account);
+		uint256 currentBalance = balanceOf(account);			
 		if(newBalance > currentBalance) {
 			uint256 mintAmount = newBalance.sub(currentBalance);
 			_mint(account, mintAmount);
@@ -510,15 +510,15 @@ contract DividendPayingToken is ERC20, Ownable, DividendPayingTokenInterface, Di
 	}
 }
 
-contract MetRise is ERC20, Ownable {
+contract MetaRise is ERC20, Ownable {
 	IRouter public uniswapV2Router;
 	address public immutable uniswapV2Pair;
 
-	string private constant _name = "MetRise";
+	string private constant _name = "MetaRise";
 	string private constant _symbol = "MRT";
 	uint8 private constant _decimals = 18;
 
-	MetRiseDividendTracker public dividendTracker;
+	MetaRiseDividendTracker public dividendTracker;
 
 	bool public isTradingEnabled;
 	uint256 private _tradingPausedTimestamp;
